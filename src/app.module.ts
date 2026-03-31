@@ -19,8 +19,10 @@ import pipes from './pipes';
 import services from './services';
 import { OctoprintSettingsService } from './services/octoprint-settings.service';
 
+import { ToolsComponent } from './components/tools/tools.component';
+
 @NgModule({
-  declarations: [...components, ...directives, ...pipes],
+  declarations: [...components, ...directives, ...pipes, ToolsComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
