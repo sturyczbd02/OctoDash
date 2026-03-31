@@ -11,6 +11,8 @@ import { ConfigInvalidComponent } from './components/setup/invalid-config/invali
 import { ConfigSetupComponent } from './components/setup/setup.component';
 import { StandbyComponent } from './components/standby/standby.component';
 
+import { ToolsComponent } from './components/tools/tools.component';
+
 const routes: Routes = [
   {
     path: 'main-screen',
@@ -43,6 +45,10 @@ const routes: Routes = [
   {
     path: 'standby',
     component: StandbyComponent,
+  },
+  {
+  path: 'tools',
+  component: ToolsComponent,
   },
 ];
 
