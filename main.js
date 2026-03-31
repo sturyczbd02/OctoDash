@@ -45,17 +45,21 @@ function createWindow() {
   const mainScreen = screen.getPrimaryDisplay();
 
   window = new BrowserWindow({
-    width: dev ? 1100 : mainScreen.size.width,
-    height: dev ? 600 : mainScreen.size.height,
-    frame: dev,
-    backgroundColor: '#353b48',
-    webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
-      contextIsolation: false,
-    },
-    icon: fileURLToPath(new URL(`./${dev ? 'src' : 'dist'}/assets/icon/icon.png`, import.meta.url)),
-  });
+  width: 800,
+  height: 480,
+  minWidth: 800,
+  minHeight: 480,
+  frame: true,
+  resizable: true,
+  fullscreen: false,
+  backgroundColor: '#353b48',
+  webPreferences: {
+    nodeIntegration: true,
+    enableRemoteModule: true,
+    contextIsolation: false,
+  },
+  icon: fileURLToPath(new URL(`./${dev ? 'src' : 'dist'}/assets/icon/icon.png`, import.meta.url)),
+});
 
   if (dev) {
     url = 'http://localhost:4200';
