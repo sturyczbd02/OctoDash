@@ -21,6 +21,8 @@ import { OctoprintSettingsService } from './services/octoprint-settings.service'
 
 import { ToolsComponent } from './components/tools/tools.component';
 
+import { FilamentChangeComponent } from './components/filament-change/filament-change.component';
+
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
@@ -38,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
     RoundProgressModule,
     LottieComponent,
     MatIconModule,
+    FilamentChangeComponent,
   ],
   providers: [
     ...services,

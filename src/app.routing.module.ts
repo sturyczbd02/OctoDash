@@ -12,6 +12,7 @@ import { ConfigSetupComponent } from './components/setup/setup.component';
 import { StandbyComponent } from './components/standby/standby.component';
 
 import { ToolsComponent } from './components/tools/tools.component';
+import { FilamentChangeComponent } from './components/filament-change/filament-change.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'tools',
     component: ToolsComponent,
+  },
+  {
+  path: 'filament-change',
+    component: FilamentChangeComponent,
   },
 ];
 
