@@ -26,7 +26,7 @@ import { FilamentChangeComponent } from './components/filament-change/filament-c
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [...components, ...directives, ...pipes, ToolsComponent],
+  declarations: [...components, ...directives, ...pipes, ToolsComponent, FilamentChangeComponent,],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
@@ -40,7 +40,6 @@ import { MatIconModule } from '@angular/material/icon';
     RoundProgressModule,
     LottieComponent,
     MatIconModule,
-    FilamentChangeComponent,
   ],
   providers: [
     ...services,
