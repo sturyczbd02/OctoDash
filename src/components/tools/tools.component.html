@@ -1,3 +1,115 @@
+<app-top-bar [backButton]="true" (onBack)="goToMainScreen()">
+  <img src="assets/control.svg" class="top-bar__center-icon" />
+</app-top-bar>
+
 <div class="tools">
-  <h1>Tools</h1>
+  <h1 *ngIf="!mode">Tools</h1>
+  <h1 *ngIf="mode === 'z-offset'">Z Offset</h1>
+  <h1 *ngIf="mode === 'bed-level'">Bed Level</h1>
+  <h1 *ngIf="mode === 'movement'">Bed Position</h1>
+
+  <div *ngIf="!mode" class="tools-grid">
+    <button routerLink="/tools/z-offset" class="tool-button">
+      <img src="assets/z-offset.svg" class="tool-icon" />
+      <span>Z Offset</span>
+    </button>
+    <button routerLink="/tools/bed-level" class="tool-button">
+      <mat-icon class="material-symbols-outlined tool-icon">tools_level</mat-icon>
+      <span>Bed Level</span>
+    </button>
+    <button routerLink="/tools/movement" class="tool-button">
+      <mat-icon class="material-symbols-outlined tool-icon">bottom_right_click</mat-icon>
+      <span>Bed Position</span>
+    </button>
+  </div>
+
+  <!-- Z-Offset-->
+  <div *ngIf="mode === 'z-offset'" class="z-offset-row">
+
+    <!-- LEFT: G28 -->
+    <div class="z-side">
+      <button (click)="homePrinter()" [disabled]="isPrinting" class="icon-button">
+        <mat-icon class="material-symbols-outlined">home</mat-icon>
+      </button>
+    </div>
+
+    <!-- CENTER: OFFSET CONTROL -->
+    <div class="z-center">
+      <div class="z-readout">
+        <div>Current: {{ zOffsetActual.toFixed(2) }}</div>
+        <div>Edited: {{ zOffsetEdited.toFixed(2) }}</div>
+      </div>
+
+      <div class="step-selector">
+        <button
+          *ngFor="let step of stepOptions"
+          (click)="setStep(step)"
+          [class.active-step]="selectedStep === step">
+          {{ step }}
+        </button>
+      </div>
+
+      <div class="z-controls">
+        <button (click)="adjustOffset(true)">
+          <mat-icon class="material-symbols-outlined plusminus-icon">arrow_circle_up</mat-icon>
+        </button>
+        <button (click)="adjustOffset(false)">
+          <mat-icon class="material-symbols-outlined plusminus-icon">arrow_circle_down</mat-icon>
+        </button>
+      </div>
+
+      <div class="z-actions">
+        <button (click)="saveOffset()" [disabled]="!canSave()">
+          <mat-icon class="material-symbols-outlined savereset-icon">save</mat-icon>
+        </button>
+        <button (click)="resetEditedOffset()" [disabled]="!canSave()">
+          <mat-icon class="material-symbols-outlined savereset-icon">replay</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Z0 -->
+    <div class="z-side">
+      <button (click)="goToZ0()" [disabled]="isPrinting" class="icon-button">
+        <mat-icon class="material-symbols-outlined">download_2</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bed Leveling-->
+  <div *ngIf="mode === 'bed-level'" class="bed-level">
+    <div class="bed-points">
+      <button class="bed-point-button fl" (click)="moveToBedPoint(60, 70)">FL</button>
+      <button class="bed-point-button fr" (click)="moveToBedPoint(160, 70)">FR</button>
+
+      <button class="bed-point-button center" (click)="moveToBedPoint(110, 130)">Center</button>
+
+      <button class="bed-point-button bl" (click)="moveToBedPoint(60, 190)">BL</button>
+      <button class="bed-point-button br" (click)="moveToBedPoint(160, 190)">BR</button>
+    </div>
+
+    <div class="bed-z-controls">
+      <button class="icon-button" (click)="moveBedZUp()">
+        <mat-icon class="material-symbols-outlined plusminus-icon">arrow_circle_up</mat-icon>
+      </button>
+
+      <button class="icon-button" (click)="moveBedZDown()">
+        <mat-icon class="material-symbols-outlined plusminus-icon">arrow_circle_down</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bed Leveling-->
+   <div *ngIf="mode === 'movement'" class="bed-position">
+      <button class="position-button" (click)="goToHomeCorner()">
+        <mat-icon class="material-symbols-outlined">home</mat-icon>
+        <span>Home Corner</span>
+      </button>
+
+      <button class="position-button" (click)="presentBed()">
+        <mat-icon class="material-symbols-outlined">north</mat-icon>
+        <span>Present Bed</span>
+      </button>
+    </div>
+
 </div>

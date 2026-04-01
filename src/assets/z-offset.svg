@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+
+  <!-- Z (bigger + centered properly) -->
+  <text x="35" y="65"
+        text-anchor="middle"
+        font-size="70"
+        fill="none"
+        stroke="white"
+        stroke-width="3"
+        font-family="Arial, sans-serif">
+    Z
+  </text>
+
+  <!-- Vertical line -->
+  <line x1="75" y1="20" x2="75" y2="80"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"/>
+
+  <!-- Up arrow -->
+  <line x1="75" y1="20" x2="65" y2="35"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"/>
+  <line x1="75" y1="20" x2="85" y2="35"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"/>
+
+  <!-- Down arrow -->
+  <line x1="75" y1="80" x2="65" y2="65"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"/>
+  <line x1="75" y1="80" x2="85" y2="65"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"/>
+
+</svg>

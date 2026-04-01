@@ -1,3 +1,366 @@
 .tools {
   padding: 20px;
 }
+
+mat-icon.tool-icon {
+  transform: scale(1.15);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tool-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 170px;
+  width: 100%;
+  color: #f1f2f6;
+  font-family: inherit;
+}
+
+.tool-button span {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  color: #f1f2f6;
+}
+
+.tool-icon {
+  width: 78px;
+  height: 78px;
+  font-size: 78px;
+  color: #f1f2f6;
+}
+
+.tool-button img.tool-icon {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+
+.tool-button:hover,
+.tool-button:focus,
+.tool-button:active {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Z-Offset */
+.z-offset-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  overflow: visible;
+}
+
+.z-side {
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.z-side:first-child {
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+.z-side:last-child {
+  justify-content: flex-start;
+  padding-left: 40px;
+}
+
+.z-side .icon-button {
+  width: 110px;
+  height: 110px;
+  overflow: visible;
+}
+
+.z-side .icon-button mat-icon,
+.z-side .icon-button .material-symbols-outlined {
+  font-size: 64px !important;
+  width: 64px !important;
+  height: 64px !important;
+  line-height: 64px !important;
+}
+
+.z-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.z-readout {
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.step-selector {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.step-selector button {
+  min-width: 76px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  background: #6d7789;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+.step-selector button.active-step {
+  background: #ffffff;
+  color: #2f3545;
+  font-weight: 600;
+}
+
+.z-controls,
+.z-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.icon-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button mat-icon {
+  font-size: 42px;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  color: #E3E3E3;
+}
+
+.z-controls .icon-button mat-icon {
+  font-size: 72px;
+  width: 72px;
+  height: 72px;
+}
+
+.z-controls .icon-button mat-icon,
+.z-controls .icon-button .material-symbols-outlined {
+  font-size: 72px !important;
+  width: 72px !important;
+  height: 72px !important;
+  line-height: 72px !important;
+}
+
+.z-actions .icon-button mat-icon {
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+}
+
+.icon-button:disabled {
+  opacity: 0.35;
+}
+
+.z-actions .icon-button,
+.z-controls .icon-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 64px;
+  height: 64px;
+}
+
+.z-controls button,
+.z-actions button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.z-controls .icon-button mat-icon,
+.z-controls .icon-button .material-symbols-outlined {
+  font-size: 72px !important;
+  width: 72px !important;
+  height: 72px !important;
+  line-height: 72px !important;
+}
+
+.plusminus-button {
+  width: 88px !important;
+  height: 88px !important;
+}
+
+.plusminus-icon {
+  font-size: 60px !important;
+  width: 60px !important;
+  height: 60px !important;
+  line-height: 60px !important;
+}
+
+.savereset-button {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.savereset-icon {
+  font-size: 36px !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+}
+
+/* Bed Leveling */
+.bed-level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 0;
+}
+
+.bed-points {
+  display: grid !important;
+  grid-template-columns: repeat(3, 84px) !important;
+  grid-template-rows: repeat(3, 62px) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  column-gap: 34px !important;
+  gap: 6px !important;
+  position: relative;
+  left: 2%;
+  transform: translateX(2%);
+}
+
+.bed-point-button {
+  background: transparent !important;
+  border: 2px solid #E3E3E3 !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  color: #E3E3E3 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  padding: 0 !important;
+  width: 64px !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.bed-point-button.fl { grid-column: 1 !important; grid-row: 1 !important; }
+.bed-point-button.fr { grid-column: 3 !important; grid-row: 1 !important; }
+
+.bed-point-button.center {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+  transform: scale(1.15);
+  font-size: 18px;
+  border-width: 3px;
+}
+
+.bed-point-button.bl { grid-column: 1 !important; grid-row: 3 !important; }
+.bed-point-button.br { grid-column: 3 !important; grid-row: 3 !important; }
+
+.bed-z-controls {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.bed-z-button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #E3E3E3;
+  font-size: 28px;
+  font-weight: 500;
+  padding: 0;
+  min-width: 140px;
+  height: 70px;
+}
+
+.bed-points,
+.bed-z-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bed-points {
+  transform: translateX(-2px);
+}
+
+.bed-point-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bed-point-button:active {
+  transform: scale(0.95);
+}
+
+/* Bed Position */
+.bed-position {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.position-button {
+  background: transparent;
+  border: 2px solid #E3E3E3;
+  border-radius: 18px;
+  width: 200px;
+  height: 200px;
+  color: #E3E3E3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.position-button mat-icon {
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.position-button span {
+  font-size: 22px;
+}
+
+.position-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.position-button:active {
+  transform: scale(0.95);
+}

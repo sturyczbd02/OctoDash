@@ -47,8 +47,12 @@ const routes: Routes = [
     component: StandbyComponent,
   },
   {
-  path: 'tools',
-  component: ToolsComponent,
+    path: 'tools/:mode',
+    component: ToolsComponent,
+  },
+  {
+    path: 'tools',
+    component: ToolsComponent,
   },
 ];
 

@@ -264,6 +264,18 @@ export class OctoPrintSocketService implements SocketService {
       } as OctoprintSocketEvent);
     }
 
+    if (message.current.logs?.length) {
+      message.current.logs.forEach(log => {
+        this.statusTextSubject.next(log);
+      });
+    }
+
+    if (message.current.messages?.length) {
+      message.current.messages.forEach(msg => {
+        this.statusTextSubject.next(msg);
+      });
+    }
+
     this.printerStatusSubject.next(this.printerStatus);
   }
 

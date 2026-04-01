@@ -21,6 +21,8 @@ import { OctoprintSettingsService } from './services/octoprint-settings.service'
 
 import { ToolsComponent } from './components/tools/tools.component';
 
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [...components, ...directives, ...pipes, ToolsComponent],
   bootstrap: [AppComponent],
@@ -35,6 +37,7 @@ import { ToolsComponent } from './components/tools/tools.component';
     MatRippleModule,
     RoundProgressModule,
     LottieComponent,
+    MatIconModule,
   ],
   providers: [
     ...services,
