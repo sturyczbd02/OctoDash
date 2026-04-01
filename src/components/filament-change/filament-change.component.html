@@ -1,3 +1,71 @@
 <div class="filament-change">
+
   <h1>Filament Change</h1>
+
+  <div *ngIf="stage === 'heating'" class="filament-stage">
+    <div class="filament-message">
+        Heating nozzle to 220° C
+    </div>
+
+    <div class="filament-temp">
+        Nozzle: {{ currentNozzleTemp }}° / {{ targetNozzleTemp }}° C
+    </div>
+
+    <button class="filament-cancel" (click)="cancelFilamentChange()">
+        Cancel
+    </button>
+  </div>
+
+  <div *ngIf="stage === 'retracting'" class="filament-stage">
+    <div class="filament-message">
+        Retracting...
+    </div>
+
+    <div class="filament-temp">
+        Nozzle: {{ currentNozzleTemp }}° / {{ targetNozzleTemp }}°
+    </div>
+
+    <button class="filament-cancel" (click)="cancelFilamentChange()">
+        Cancel
+    </button>
+    </div>
+
+    <div *ngIf="stage === 'swap'" class="filament-stage">
+        <div class="filament-message">
+            Remove old filament and load new filament
+        </div>
+
+        <button class="filament-ready" (click)="startLoading()">
+            Ready!
+        </button>
+
+        <button class="filament-cancel" (click)="cancelFilamentChange()">
+            Cancel
+        </button>
+    </div>
+
+    <div *ngIf="stage === 'loading'" class="filament-stage">
+        <div class="filament-message">
+            Loading new filament and purging...
+        </div>
+
+        <div class="filament-temp">
+            Nozzle: {{ currentNozzleTemp }}° / {{ targetNozzleTemp }}°
+        </div>
+
+        <button class="filament-cancel" (click)="cancelFilamentChange()">
+            Cancel
+        </button>
+        </div>
+
+        <div *ngIf="stage === 'done'" class="filament-stage">
+        <div class="filament-message">
+            Loading complete
+        </div>
+
+        <button class="filament-ready" (click)="finishFilamentChange()">
+            Done!
+        </button>
+    </div>
+
 </div>
